@@ -2,7 +2,7 @@ package intro;
 
 public class IntroMain {
 	
-	public static final String[] DESCRIPTIONS = {"is a teacher at BTHS","is a student at BTHS"};
+	public static final String[] DESCRIPTIONS = {" is a teacher at BTHS"," is a student at BTHS"};
 	
 	
 	
@@ -18,7 +18,7 @@ public class IntroMain {
 		//in the same line of code, it is also being instantiated
 		//note the use of the word "new" this word is always used when calling constructors
 		
-		CodingConventions conventionsInstance = new CodingConventions("Devin Yang",0);
+		CodingConventions conventionsInstance = new CodingConventions("Devin Yang", i%2);
 		//local variables are only used in the scope of a method
 		//after the method, they are destroyed 
 		/*
