@@ -1,15 +1,17 @@
 package attendance;
 
 public class Student implements Attendee {
-	private String first;
-	private String last;
-	private String absent;
+	private String first1;
+	private String last1;
+	private String lineoftext;
 	private boolean present;
 	
 
 public Student(String firstName,String lastName){
-	this.first = firstName;
-	this.last = lastName;
+	this.first1 = firstName;
+	this.last1 = lastName;
+	present = false;
+	
 	
 }
 public void setPresent(boolean present) {
@@ -21,39 +23,46 @@ public boolean isPresent() {
 }
 
 public String getFirstName(){
-	return "Devin";
+	return first1;
 }
 public String getLastName(){
-	return "Yang";
+	return last1;
 }
 public boolean mathces(String first, String last) {
-	if(this.first.compareTo(first) == 0 && this.last.compareTo(last) == 0) {
-		return true;
+		return first.toLowerCase().equals(first1.toLowerCase()) && last.toLowerCase().equals(last1.toLowerCase());
+
 	}
-	else
-		return false;
+
+
+public boolean matches(String last) {
+	return last.toLowerCase().equals(last1.toLowerCase());
 }
-public boolean matches(String first) {
-	if(this.first.compareTo(first) == 0) {
-		return true;
-	}
-	else
-		return false;
+
 	
-}
+
 public String getReportString() {
-	
-	while(this.first.length() < 20)
-{
-	this.first += "";
+		this.lineoftext = this.last1;
+		while(lineoftext.length() > 20)
+		{
+			lineoftext += " ";
+		}
+		this.lineoftext+= this.first1;
+		while(lineoftext.length() > 40)
+		{
+			lineoftext += " ";
+		}
+		if (this.present == true)
+		{
+			this.lineoftext+="PRESENT";
+			return lineoftext;
+		}
+		else
+		{
+			this.lineoftext +="ABSENT";
+			return lineoftext;
+		}
+		
 }
-	this.last = this.first + this.last;
-	while (this.last.length() < 40)
-	{
-		this.last += "";
-	}
-		return this.absent = this.last + "Absent";
 	
-}
 }
 
