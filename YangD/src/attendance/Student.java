@@ -42,12 +42,12 @@ public boolean matches(String last) {
 
 public String getReportString() {
 		this.lineoftext = this.last1;
-		while(lineoftext.length() > 20)
+		while(lineoftext.length() < 20)
 		{
 			lineoftext += " ";
 		}
 		this.lineoftext+= this.first1;
-		while(lineoftext.length() > 40)
+		while(lineoftext.length() < 40)
 		{
 			lineoftext += " ";
 		}
