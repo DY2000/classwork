@@ -12,6 +12,8 @@ public class Hobby extends Thing {
 					new Hobby("yugioh"),
 					new Hobby("walking on da beach");
 		}
+	
 		return c[(int)(Math.random()*c.length)];
 
+}
 }
