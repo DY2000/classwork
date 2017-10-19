@@ -5,11 +5,22 @@ public class ObjectMain {
 	public ObjectMain() {
 		Person[] people = new Person[20];
 		populate(people);
-		people[0] = new Thing("toaster oven");
-		for(Person pep: people) {
+		// people[0] = new Thing("toaster oven");
+		//Person[] group = selectGroup(people, 5);
+		for(Person pep: people)
+			pep.mingle(people);
 			System.out.println(pep);
+			pep.stateYourFriends();
 		}
 		
+	
+	
+	private void analyzeCommonalities(Person[] people, Person[] group) {
+		double averageCommonalities = 0;
+		double trials = 500;
+		
+		double sumCounts = 0;
+		for(int i = 0; i < trials; i++)
 	}
 	
 	private void populate(Object[] people) {
@@ -34,8 +45,31 @@ public class ObjectMain {
 			}
 			
 		}
-		
 	
+	private Person[] selectGroup(Person[]population, int length) {
+		Person[] group = new Person[length];
+		for(int i = 0; i < length; i ++) {
+			Person toAdd = randomPerson(population);
+			while(alreadyContains(group, toAdd)) {
+				toAdd = randomPerson(population);
+			}
+			group[i] = toAdd;
+		}
+		return group;
+	}
+	
+	private Person randomPerson(Person[] population) {
+		int index = ((int)Math.random() * population.length);
+			return population[index];
+	}
+	
+	private boolean alreadyContains(Person [] population, Person pep) {
+		for(int i = 0; i < population.length; i ++)
+			if(population[i] == pep) {
+				return true;
+			}
+				return false;
+			}
 
 	private Borough randomBorough() {
 		return Borough.NY_BOROUGHS[(int)(Math.random()*Borough.NY_BOROUGHS.length)];
