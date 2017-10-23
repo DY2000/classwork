@@ -34,31 +34,32 @@ public class Person {
 	 */
 	public static String createNickname(String name) {
 		String nickname = "";
-		int count = 0;
-		for (int i = 0; i < name.length(); i ++) {
-			String letter = name.substring(i,i+1);
+		int vowelCount = 0;
+		for(int i = 0; i < name.length(); i++) {
+			String letter =  name.substring(i,i+1);
 			if(isVowel(letter)) {
-				count++;
-				if (count != 2) {
+				vowelCount++;
+				if(vowelCount != 2) {
 					nickname += letter;
+				}else {
+					return nickname;
 				}
 			}else {
-				return nickname;
+				//add the letter when not a voewl
+				nickname += letter;
 			}
-		}else {
-			
-					nickname += letter;
-				
 		}
-	}
 		return name;
+	}
+
+		
 public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-}
+
 		
 		private static boolean isVowel(String letter) {
 			letter = letter.toLowerCase();

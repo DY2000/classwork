@@ -16,10 +16,24 @@ public class ArraysMain {
 		int[] diceRolls = new int[10000];
 		populate(diceRolls);
 		int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+		int max = 1;
 		int longest = data[0];
 		System.out.println("The longest sequence is " + 
 		longest + " rolls. It happened on roll #"+data[1]+" the sequence was "
 				+ Arrays.toString(subArray(diceRolls, data[1], data[0]))+ ".");
+		while(longest != 11) {
+			populate(diceRolls);
+			data = longestConsecutiveSeqAndIndex(diceRolls);
+			longest = data[0];
+			if(longest > max) {
+				max = longest;
+				System.out.println("The longest sequence is " + 
+						longest + " rolls. It happened on roll #"+data[1]+
+						" the sequence was: "
+						+ Arrays.toString(subArray(diceRolls, 
+								data[1], data[0]))+".");
+			}
+		}
 	}
 /**
  * Big Idea!
@@ -116,7 +130,7 @@ public class ArraysMain {
 	}
 
 	
-	public cardEngine() {
+	public void cardMethods() {
 		suits = new String[4];
 		suits[0] = "Clubs";
 		suits[1] = "Hearts";
@@ -140,7 +154,8 @@ public class ArraysMain {
 		//populate(testArray);
 		//countOccurences(testArray,2,12);
 		//System.out.println(Arrays.toString(testArray));
-	}
+
+		}
 	
 	private int[] subArray(int[] arr, int psn, int length) {
 		int[] sub = new int[length];

@@ -3,8 +3,7 @@ package arrays2D;
 public class Main {
 
 		public static void main(String[] args) {
-			String[][] picture = new String[10][20];
-			printPicture(picture);
+			Array2DSampler test = new Array2DSampler();
 		}
 	
 		/**

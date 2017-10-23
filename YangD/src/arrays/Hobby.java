@@ -10,8 +10,8 @@ public class Hobby extends Thing {
 	public static Hobby randomHobby() {
 		Hobby[] c = {new Hobby("Playing video games"),
 					new Hobby("yugioh"),
-					new Hobby("walking on da beach");
-		}
+					new Hobby("walking on da beach")
+		};
 	
 		return c[(int)(Math.random()*c.length)];
 

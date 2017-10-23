@@ -9,11 +9,10 @@ public class Array2DSampler {
 			print(pic);
 			}
 
-	private void print(String[][] pic2) {
+	private void print(String[][] pic) {
 		//standard for loop for 2d array
-		
 		for(int row = 0; row < pic.length; row++) {
-			//special note: these for loops gets you test points!
+			//special note: these for loops get you test points!
 			for(int col = 0; col < pic[row].length; col++) {
 				System.out.print(pic[row][col]);
 			}
@@ -21,15 +20,18 @@ public class Array2DSampler {
 			System.out.println("");
 		}
 		//for each style:
-		//for each row....
+		//for each row...
 		for(String[] row: pic) {
 			//for each column in that row...
 			for(String col: row) {
-				System.out.println("col");
+				System.out.print(col);
 			}
 			//line break
 			System.out.println("");
 		}
+		
 	}
 
 }
+
+
