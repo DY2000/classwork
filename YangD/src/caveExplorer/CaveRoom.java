@@ -83,7 +83,24 @@ public class CaveRoom {
 	 * cave editing guise
 	 */
 	public static void setUpCaves() {
+		//1. Determine size of caves
+		CaveExplorer.caves = newCaveRoom[5][5];
+		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
+		//2. Populate with default caves
+		for(int row = 0; row < c.length; row++) {
+			for (int col = 0; col < c[row].length;) {
+				c[row][col] = new CaveRoom("This cave has coordinates "+row+", "+col);
+			}
+		}
+		//3. Replace some default rooms with custom rooms (SAVE FOR LATER)
 		
+		//4.set starting room
+		CaveExplorer.currentRoom = c[0][1];
+		CaveExplorer.currentRoom.enter();
+		
+		//5. Set up doors
+		c[0,1].setConnection(SOUTH, c[1][1], new Door());
+		c[1,1].setConnection(EAST, c[1][2], new Door());
 	}
 	public void goToRoom(int direction) {
 		if(borderingRooms[direction] != null && doors[direction] != null &&
