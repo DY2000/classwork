@@ -8,7 +8,7 @@ public class CaveExplorer {
 	public static Scanner in;//for user input
 	public static CaveRoom currentRoom;// changes as the user moves
 	public static Inventory inventory; //dem haxs
-	private static boolean playing = true;
+	public static boolean playing = true;
 	
 
 	public static void main(String[] args) {
