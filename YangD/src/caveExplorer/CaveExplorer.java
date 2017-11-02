@@ -9,7 +9,8 @@ public class CaveExplorer {
 	public static CaveRoom currentRoom;// changes as the user moves
 	public static Inventory inventory; //dem haxs
 	public static boolean playing = true;
-	public static 
+	public static NPC[] npcs;
+	
 	
 
 	public static void main(String[] args) {
@@ -38,4 +39,5 @@ public class CaveExplorer {
 		}
 		inventory.updateMap();
 	}
+
 }

@@ -101,34 +101,41 @@ public class CaveRoom {
 	public void interpretInput(String input) {
 		while(!isValid(input)) {
 			printValidMoves();
+			
 			input = CaveExplorer.in.nextLine();
 		}
 		int direction = validMoves().indexOf(input);
-		if(direction < 4) {
+		if (direction < 4) {
 			goToRoom(direction);
 		}else {
 			performAction(direction);
 		}
 	}
+	
 	/**
 	 * override to create response to keys other than wdsa
 	 * @param direction
 	 */
-	
 	public void performAction(int direction) {
 		CaveExplorer.print("That key does nothing.");
 	}
 
 
+	/**
+	 * Override to change description of possible moves
+	 */
 	public void printValidMoves() {
 		System.out.println("You can only enter 'w', 'a', 's', or 'd'.");
 	}
-	
+
+	/**
+	 * override to add more moves
+	 * @return
+	 */
 	public String validMoves() {
 		return "wdsa";
-		
 	}
-	
+
 	/**
 	 * returns true if w,a,s, or d is the input (NO IF STATEMENTS)
 	 * @param input
@@ -143,7 +150,7 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. Determine size of caves
-		CaveExplorer.caves = new CaveRoom[5][5];
+		CaveExplorer.caves = new NPCRoom[5][5];
 		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
 		//2. Populate with default caves
 		for(int row =0; row < c.length; row ++) {
@@ -157,7 +164,6 @@ public class CaveRoom {
 		CaveExplorer.npcs = new NPC[1];
 		CaveExplorer.npcs[0] = testNPC;
 		
-		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
 		CaveExplorer.currentRoom.enter();
@@ -166,8 +172,7 @@ public class CaveRoom {
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
 		c[1][1].setConnection(EAST, c[1][2], new Door());
 		
-		CaveRoom[][][] layers = new CaveRoom[3][][];
-		layers[0] = new CaveRoom[3][4];
+		
 		//make doors lock after you walk in
 		//teleport to a different room
 		//make map dark
@@ -234,7 +239,7 @@ public class CaveRoom {
 	}
 
 
-	public Door getDoor(int dirrection) {
-		return doors[dirrection];
+	public Door getDoor(int direction) {
+		return doors[direction];
 	}
 }

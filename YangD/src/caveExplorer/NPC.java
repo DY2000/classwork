@@ -17,15 +17,25 @@ public class NPC {
 		this.activeDescription = "There is a person standing in the room"
 				+ " waiting to talk to you. Press 'e' to talk.";
 		this.inactiveDescription = "The person you spoke to earlier"
-				+ "is standing here.";
+				+ " is standing here.";
 		this.currentCol = -1;
 		this.currentRow = -1;
 		currentRoom = null;
 		active = true;
 	}	
+	public void act() {
+		CaveExplorer.print("There is nothing to interact with.");
+		String s = CaveExplorer.in.nextLine();
+		while(!s.equalsIgnoreCase("e")) {
+			CaveExplorer.print("Far off in the distance, you hear a damsel in distress.");
+			 s = CaveExplorer.in.nextLine();
+		}
+		CaveExplorer.print("Far off in the distance, you hear a damsel in distress.");
+		active = true;
+	}
+
 
 	public void interact() {
-		// TODO Auto-generated method stub
 		CaveExplorer.print("Let's interact! Type 'bye' to Stop!");
 		String s = CaveExplorer.in.nextLine();
 		while(!s.equalsIgnoreCase("bye")) {
@@ -81,5 +91,18 @@ public class NPC {
 			setPosition(newRow, newCol);
 		}
 	}
-
+	private int[] calculateMove() {
+		int[][] possibleMoves = {{-1,0},{0,1},{1,0},{0,-1}};
+		int index = (int)(Math.random() * possibleMoves.length);
+		int[] newPosition = new int[2];
+		newPosition[0] = currentRow + possibleMoves[index][0];
+		newPosition[1] = currentCol + possibleMoves[index][1];
+		while(currentRoom.getDoor(index) == null ||
+			!(CaveExplorer.caves[newPosition[0]][newPosition[1]]instanceof NPCRoom)) {
+			index = (int)(Math.random() * possibleMoves.length);
+			newPosition[0] = currentRow + possibleMoves[index][0];
+			newPosition[1] = currentCol + possibleMoves[index][1];
+		}
+		return newPosition;
+	}
 }

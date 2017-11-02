@@ -41,13 +41,14 @@ public class NPCRoom extends CaveRoom {
 			if(npc != null && npc.isActive()) {
 				npc.interact();
 			}else {
-				CaveExplorer.print("There is nothing to interact with.");
+				
+				npc.act();
 			}
-			
 		}else {
-			CaveExplorer.print("That key does nothing.");
+			CaveExplorer.print("That key does nothing");
 		}
 	}
+		
 	
 	public String getContents() {
 		if(containsNPC() && npc.isActive()) {
