@@ -33,5 +33,15 @@ public class Predator extends ReproductionAnimal{
 	
 	public boolean canEat(){
 		int attempts = 0;
+		while(attempts < 3) {
+			int tIndex = (int)(Math.random()*habitat.getAnimals().length);
+			Animal target = habitat.getAnimals()[tIndex];
+			if(target instanceof Prey) {
+				habitat.removeAnimal(tIndex);
+				return true;
+			}
+			attempts++;
+		}
+		return false;
 	}
 }

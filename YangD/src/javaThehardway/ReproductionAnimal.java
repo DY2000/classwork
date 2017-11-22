@@ -48,6 +48,8 @@ public class ReproductionAnimal extends RoamingAnimal {
 					!target.hasMated()) {
 				Animal baby = getOffspring((ReproductionAnimal)target);
 				if(baby != null) {
+					int litterSize = (int)(Math.random() * maxLitter);
+					for(int j = 1; j < litterSize; j++)
 					habitat.addAnimal(baby);
 					baby = getOffspring((ReproductionAnimal)target);
 				}
