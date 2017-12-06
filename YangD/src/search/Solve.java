@@ -14,12 +14,13 @@ public class Solve {
 	  return (x + mystery(x / 2) + mystery(x / 4));
 	  /*
 	   * 10 + mystery(5) + mystery(2.5);
-	   * 10 + 5 + mystery(2.5) + mystery(1.25) + mystery(2.5);
-	   * 10 + 5 + 3 + mystery(1.25) + mystery(0.625) + mystery(2.5);
-	   * 10 + 5 + 3 + 1 + 0 + 3 + 1 + 0 = 23 OR
-	   * 10 + 5  + 2 + 1 + 0 + 2 + 1 + 0 = 21
-	   * closest value is 22 as an answer choice, in between 21 and 23 is 22.
-	   *  however, wouldn't it just keep on looping infinitely towards 0, which gives it a stack overflow error?
+	   * 10 + 5 + mystery(2.5) + mystery(2.5/4) + mystery(2.5);
+	   * 10 + 5 + 2 + mystery(2.5/2) + mystery(2.5/4) + mystery(2.5);
+	   * 10 + 5 + 2 + 1 + mystery(0.625) + mystery(0.25) + mystery(2.5);
+	   * 10 + 5 + 2 + 1 + 1 + 0 + 2 + 1 + 1 + 0 = 23 OR
+	   * 10 + 5 + 2 + 1 + 0 + 0 + 2 + 1 + 0 + 0 = 21
+	   * In between those values is 22, which is the answer.
+	   *  INT = no decimals
 	   * 
 	   */
 	 }
@@ -54,6 +55,7 @@ public class Solve {
 	   * 3 + 4.3 + m2(35.43)
 	   * 3 + 4.3 + 5.43 + m2(3.543)
 	   * 3 + 4.3 + 5.43 + 3.543 + m2(0.3543) (not sure what to do with decimals, ignore them? Same with mystery, it'll give a stack overflow error if it doesn't ignore decimals.)
+	   * Correction: variable is an int, therefore it ignores decimals.
 	   * 3 + 4 + 5 + 3 = 15
 	   */
 	 }
