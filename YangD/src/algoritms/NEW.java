@@ -6,9 +6,9 @@ public class NEW {
 	
 	public static String repeat(int num)
 	{
-		String bounce =  " "+ (num / 7) ;
+		String bounce =  " " + (num / 7) ;
 	
-		if(num % 5  > 2 || num < 50){
+		if(num % 5  > 2 || num >= 12){
 			return bounce + repeat(num / 2);
 			
 		}
