@@ -8,7 +8,7 @@ public class NEW {
 	{
 		String bounce =  " " + (num / 7) ;
 	
-		if(num % 5  > 2 || num >= 12){
+		if(num % 5  > 2 || num > 12){
 			return bounce + repeat(num / 2);
 			
 		}
